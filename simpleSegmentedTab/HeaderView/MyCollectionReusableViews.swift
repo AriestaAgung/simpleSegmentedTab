@@ -25,6 +25,7 @@ class MyCollectionReusableViews: UICollectionReusableView {
         boxView.layer.cornerRadius = 10
         
         mainTextLabel.text = "Test ini adalah sebuah text yang harusnya panjang"
+        mainTextLabel.numberOfLines = 0
         
         
     }
