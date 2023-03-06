@@ -101,9 +101,8 @@ extension ViewController: UIScrollViewDelegate {
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView {
-            let pageIndex = round(scrollView.contentOffset.x / view.frame.width)
+            let pageIndex = round(scrollView.contentOffset.x / scrollView.frame.width)
             segmentedControl.selectedSegmentIndex = Int(pageIndex)
         }
-        
     }
 }
