@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         self.scrollView.delegate = self
         self.firstCollectionView.register(exampleCell.NIB, forCellWithReuseIdentifier: exampleCell.identifier)
         self.secondCollectionView.register(exampleCell.NIB, forCellWithReuseIdentifier: exampleCell.identifier)
+        self.secondCollectionView.register(UINib(nibName: "MyCollectionReusableViews", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MyCollectionReusableViews.reuseIdentifierHeader)
         self.firstCollectionView.dataSource = self
         self.firstCollectionView.delegate = self
         self.firstCollectionView.allowsSelection = false
@@ -52,7 +53,7 @@ class ViewController: UIViewController {
         
         self.secondCollectionView.dataSource = self
         self.secondCollectionView.delegate = self
-        self.secondColHeight.constant = CGFloat(items2.count * 60)
+        self.secondColHeight.constant = CGFloat(items2.count * 900)
         
         segmentedControl.addTarget(self, action: #selector(itemChanged(_:)), for: .valueChanged)
     }
@@ -61,7 +62,7 @@ class ViewController: UIViewController {
     @objc private func itemChanged(_ sender: UISegmentedControl) {
         print("item: \(items[sender.selectedSegmentIndex])")
         var frame = scrollView.frame
-        frame.origin.x = frame.size.width * CGFloat(sender.selectedSegmentIndex ?? 0)
+        frame.origin.x = frame.size.width * CGFloat(sender.selectedSegmentIndex )
         scrollView.scrollRectToVisible(frame, animated: true)
     }
 }
@@ -84,16 +85,33 @@ extension ViewController: UICollectionViewDataSource {
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if collectionView == secondCollectionView {
+            return CGSize(width: collectionView.frame.size.width, height: 80)
+        } else {
+            return CGSize(width: 0, height: 0)
+        }
+    }
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
         let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
-        let size:CGFloat = (collectionView.frame.size.width - space) / 1.5
+        let size: CGFloat = (collectionView.frame.size.width - space) / 4
         return CGSize(width: size, height: size)
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if collectionView == secondCollectionView {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MyCollectionReusableViews.reuseIdentifierHeader, for: indexPath) as! MyCollectionReusableViews
+            
+            return header
+        }
+        return UIView() as! UICollectionReusableView
+    }
 }
 
 extension ViewController: UIScrollViewDelegate {
@@ -106,3 +124,4 @@ extension ViewController: UIScrollViewDelegate {
         }
     }
 }
+

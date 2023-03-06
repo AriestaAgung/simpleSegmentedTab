@@ -15,6 +15,8 @@
 		E55FB83929B3AB1300C74541 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55FB83729B3AB1300C74541 /* LaunchScreen.storyboard */; };
 		E55FB84329B4F0EA00C74541 /* exampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55FB84129B4F0EA00C74541 /* exampleCell.swift */; };
 		E55FB84429B4F0EA00C74541 /* exampleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E55FB84229B4F0EA00C74541 /* exampleCell.xib */; };
+		E55FB84829B6507200C74541 /* MyCollectionReusableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55FB84629B6507200C74541 /* MyCollectionReusableViews.swift */; };
+		E55FB84929B6507200C74541 /* MyCollectionReusableViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = E55FB84729B6507200C74541 /* MyCollectionReusableViews.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		E55FB83A29B3AB1300C74541 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E55FB84129B4F0EA00C74541 /* exampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exampleCell.swift; sourceTree = "<group>"; };
 		E55FB84229B4F0EA00C74541 /* exampleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = exampleCell.xib; sourceTree = "<group>"; };
+		E55FB84629B6507200C74541 /* MyCollectionReusableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionReusableViews.swift; sourceTree = "<group>"; };
+		E55FB84729B6507200C74541 /* MyCollectionReusableViews.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionReusableViews.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		E55FB82B29B3AB1100C74541 /* simpleSegmentedTab */ = {
 			isa = PBXGroup;
 			children = (
+				E55FB84529B6504800C74541 /* HeaderView */,
 				E55FB84029B4F09F00C74541 /* cell */,
 				E55FB82C29B3AB1100C74541 /* AppDelegate.swift */,
 				E55FB82E29B3AB1100C74541 /* SceneDelegate.swift */,
@@ -79,6 +84,15 @@
 				E55FB84229B4F0EA00C74541 /* exampleCell.xib */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		E55FB84529B6504800C74541 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				E55FB84629B6507200C74541 /* MyCollectionReusableViews.swift */,
+				E55FB84729B6507200C74541 /* MyCollectionReusableViews.xib */,
+			);
+			path = HeaderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +157,7 @@
 				E55FB83929B3AB1300C74541 /* LaunchScreen.storyboard in Resources */,
 				E55FB83629B3AB1300C74541 /* Assets.xcassets in Resources */,
 				E55FB83429B3AB1100C74541 /* Main.storyboard in Resources */,
+				E55FB84929B6507200C74541 /* MyCollectionReusableViews.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +171,7 @@
 				E55FB84329B4F0EA00C74541 /* exampleCell.swift in Sources */,
 				E55FB83129B3AB1100C74541 /* ViewController.swift in Sources */,
 				E55FB82D29B3AB1100C74541 /* AppDelegate.swift in Sources */,
+				E55FB84829B6507200C74541 /* MyCollectionReusableViews.swift in Sources */,
 				E55FB82F29B3AB1100C74541 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
